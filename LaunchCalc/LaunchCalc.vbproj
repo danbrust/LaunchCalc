@@ -80,9 +80,9 @@
     <None Include="App.config" />
     <None Include="My Project\app.manifest" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Compile Include="modMain.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5">
@@ -103,6 +103,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="accounting5_AAV_icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
