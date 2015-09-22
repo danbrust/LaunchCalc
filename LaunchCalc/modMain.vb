@@ -159,21 +159,13 @@ Module modMain
       If IsIconic(hWnd) Then
         ShowWindow(hWnd, ShowWindowCommands.SW_RESTORE)
       ElseIf IsZoomed(hWnd) Then
-        If isWin10 Then
-          ' Minimizing first increases reliability of showing the window on Win10 systems.
-          ShowWindow(hWnd, ShowWindowCommands.SW_MINIMIZE)
-          ShowWindow(hWnd, ShowWindowCommands.SW_SHOWMAXIMIZED)
-        Else
-          ShowWindow(hWnd, ShowWindowCommands.SW_SHOWMAXIMIZED)
-        End If
+        ' Minimizing first increases reliability of showing the window on Win10 systems.
+        ShowWindow(hWnd, ShowWindowCommands.SW_MINIMIZE)
+        ShowWindow(hWnd, ShowWindowCommands.SW_SHOWMAXIMIZED)
       Else
-        If isWin10 Then
-          ' Minimizing first increases reliability of showing the window on Win10 systems.
-          ShowWindow(hWnd, ShowWindowCommands.SW_MINIMIZE)
-          ShowWindow(hWnd, ShowWindowCommands.SW_RESTORE)
-        Else
-          ShowWindow(hWnd, ShowWindowCommands.SW_SHOW)
-        End If
+        ' Minimizing first increases reliability of showing the window on Win10 systems.
+        ShowWindow(hWnd, ShowWindowCommands.SW_MINIMIZE)
+        ShowWindow(hWnd, ShowWindowCommands.SW_RESTORE)
       End If
 
       ForceForegroundWindow = CBool(Result)
