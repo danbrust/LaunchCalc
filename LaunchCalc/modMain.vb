@@ -4,6 +4,7 @@ Option Explicit On
 
 Imports System.IO
 Imports System.Diagnostics
+Imports System.Globalization
 Imports System.Runtime.InteropServices
 
 Module modMain
@@ -68,8 +69,8 @@ Module modMain
   Public Sub Main()
     Try
       Const filePath As String = "calc.exe"
-      Const processName As String = "Calculator"
 
+      Dim processName As String = GetLocalizedCalculaturWindowName()
       Dim startedApp As Boolean = False
 
       ' Detect OS.
@@ -116,6 +117,14 @@ Module modMain
 
     End Try
   End Sub
+
+  Private Function GetLocalizedCalculaturWindowName() As String
+    If CultureInfo.CurrentCulture.TwoLetterISOLanguageName.Equals("de", StringComparison.OrdinalIgnoreCase) Then
+      Return "Rechner"
+    Else
+      Return "Calculator"
+    End If
+  End Function
 
   Private Function GetWindowHandle(processName As String) As IntPtr
     processName = System.IO.Path.GetFileNameWithoutExtension(processName)
